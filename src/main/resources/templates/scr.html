@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>SCR Systemy Operacyjne</title>
+</head>
+<body>
+<p>
+    <img th:src="@{/images/PWrLogo.png}"/>
+<h1>Wydział Elektroniki</h1>
+<h3>Seminarium SCR Systemy Operacyjne</h3>
+<b>Tytuł:</b> Współbieżność w językach wysokiego poziomu na przykładzie Javy
+<br>
+<b>Autor:</b> Paweł Cembaluk
+<br>
+<b>Data prezentacji: </b> 11.12.2019
+<br>
+</p>
+<hr>
+<p>
+<h2>Spis treści</h2>
+<ol>
+    <h3>
+        <li>Wieloprocesowość kontra wielowątkowość
+
+            <ul style="font-weight:normal;font-size:16px">
+                <li>Różnica między procesem a wątkiem</li>
+            </ul>
+        </li>
+        <li>Koncepcja monitora
+
+            <ul style="font-weight:normal;font-size:16px">
+                <li>Omówienie monitora jako podstawowej metody synchronizacji</li>
+                <li>Monitor jako mutex</li>
+            </ul>
+        </li>
+        <li>Tworzenie wątków
+
+            <ul style="font-weight:normal;font-size:16px">
+                <li>Interfejs Runnable</li>
+                <li>Klasa Thread</li>
+                <li>Omówienie podstawowych mechanizmów wysokopoziomowego tworzenia wątków</li>
+            </ul>
+        </li>
+        <li>Wcielanie wątków metodą void join()
+
+            <ul style="font-weight:normal;font-size:16px">
+                <li>Koncepcja dzielenia problemu na równoległe podzadania</li>
+                <li>Wyjaśnienie potrzeby wcielania wątków</li>
+            </ul>
+        </li>
+        <li>Metody i bloki
+            <i>synchronized</i>
+            <ul style="font-weight:normal;font-size:16px">
+                <li>
+                    <i>synchronized</i> jako słowo kluczowe i jego powiązanie z monitorem
+                </li>
+                <li>Różnica między metodą a blokiem
+                    <i>synchronized</i>
+                </li>
+            </ul>
+        </li>
+        <li>Komunikacja międzywątkowa
+
+            <ul style="font-weight:normal;font-size:16px">
+                <li>Podstawowe metody monitora służące komunikacji</li>
+                <li>Przykład producenta i konsumenta</li>
+            </ul>
+        </li>
+        <li>Inne metody zrównoleglenia programów
+
+            <ul style="font-weight:normal;font-size:16px">
+                <li>Biblioteka java.util.concurrent</li>
+                <li>Fork/Join Framework</li>
+                <li>Strumienie równoległe</li>
+            </ul>
+        </li>
+    </h3>
+</ol>
+</p>
+<hr>
+<p>
+<h2>Bibliografia</h2>
+<ul>
+    <li>
+        <b>Herbert Schildt</b>
+        <i>Java: The Complete Reference, 11th Edition</i>
+    </li>
+    <li>
+        <b>Scott Oaks, Henry Wong</b>
+        <i>Java Threads, 3rd Edition</i>
+    </li>
+    <li>
+        <a href=https://stackoverflow.com/>
+            <b>Stack Overflow</b>
+        </a>
+    </li>
+</ul>
+</p>
+<hr>
+<br><a th:href="@{/}">Home</a>
+</body>
+</html>
