@@ -1,12 +1,13 @@
-div.ingredient-group:nth-child(odd) {
+div.ingredient-group /*:nth-child(odd)*/
+{
     float: left;
     /*padding-right: 20px;*/
 }
 
-div.ingredient-group:nth-child(even) {
-    float: left;
-    /*padding-right: 0;*/
-}
+/*div.ingredient-group:nth-child(even) {*/
+/*    float: left;*/
+/*    !*padding-right: 0;*!*/
+/*}*/
 
 div.ingredient-group {
     width: 33.33%;
@@ -18,12 +19,12 @@ div.ingredient-group {
     clear: both;
 }
 
-/**, *::after, *::before {*/
-/*  -webkit-box-sizing: border-box;*/
-/*  -moz-box-sizing: border-box;*/
-/*  box-sizing: border-box;*/
-/*}*/
+*, *::after, *::before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
 
-/*span.validationError {*/
-/*	color: red;*/
-/*}*/
+span.validationError {
+    color: red;
+}
