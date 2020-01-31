@@ -12,6 +12,14 @@
 
 <form method="post" th:action="@{/orders}" th:object="${order}">
 
+    <h3>Your order:</h3>
+    <ul>
+        <li th:each="taco : *{tacos}"><b><span th:text="${taco.name}">TACO</span></b>
+            (<span th:each="ingredient, iterStat : ${taco.ingredients}"
+                   th:text="${ingredient.name} + (${iterStat.last}? '' : ', ')">INGREDIENT</span>)
+        </li>
+    </ul>
+
     <h3>Deliver my taco masterpieces to...</h3>
 
     <div th:if="${#fields.hasErrors()}">

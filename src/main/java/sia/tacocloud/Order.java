@@ -6,6 +6,7 @@ import org.hibernate.validator.constraints.CreditCardNumber;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -16,14 +17,19 @@ public class Order {
     private Long id;
     private Date placedAt;
     @NotBlank(message = "Name is required")
+    @Size(max = 50, message = "Max 50 characters")
     private String name;
     @NotBlank(message = "Street is required")
+    @Size(max = 50, message = "Max 50 characters")
     private String street;
     @NotBlank(message = "City is required")
+    @Size(max = 50, message = "Max 50 characters")
     private String city;
     @NotBlank(message = "State is required")
+    @Size(max = 2, message = "Max 2 characters")
     private String state;
     @NotBlank(message = "Zip code is required")
+    @Size(max = 10, message = "Max 10 characters")
     private String zip;
     @CreditCardNumber(message = "Not a valid credit card number")
     private String ccNumber;
