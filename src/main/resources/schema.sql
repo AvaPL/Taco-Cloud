@@ -22,16 +22,16 @@ CREATE TABLE IF NOT EXISTS Taco_Ingredients
 
 CREATE TABLE IF NOT EXISTS Taco_Order
 (
-    id             identity,
-    deliveryName   varchar(50) NOT NULL,
-    deliveryStreet varchar(50) NOT NULL,
-    deliveryCity   varchar(50) NOT NULL,
-    deliveryState  varchar(2)  NOT NULL,
-    deliveryZip    varchar(10) NOT NULL,
-    ccNumber       varchar(16) NOT NULL,
-    ccExpiration   varchar(5)  NOT NULL,
-    ccCVV          varchar(3)  NOT NULL,
-    placedAt       timestamp   NOT NULL
+    id           identity,
+    name         varchar(50) NOT NULL,
+    street       varchar(50) NOT NULL,
+    city         varchar(50) NOT NULL,
+    state        varchar(2)  NOT NULL,
+    zip          varchar(10) NOT NULL,
+    ccNumber     varchar(16) NOT NULL,
+    ccExpiration varchar(5)  NOT NULL,
+    ccCVV        varchar(3)  NOT NULL,
+    placedAt     timestamp   NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS Taco_Order_Tacos

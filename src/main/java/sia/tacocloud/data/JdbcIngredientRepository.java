@@ -31,13 +31,14 @@ public class JdbcIngredientRepository implements IngredientRepository {
     }
 
     @Override
-    public Ingredient findOne(String id) {
+    public Ingredient findById(String id) {
         return jdbc.queryForObject("SELECT id, name, type FROM Ingredient WHERE id=?", this::mapRowToIngredient, id);
     }
 
     @Override
-    public void save(Ingredient ingredient) {
+    public Ingredient save(Ingredient ingredient) {
         jdbc.update("INSERT INTO Ingredient (id, name, type) VALUES (?, ?, ?)",
                     ingredient.getId(), ingredient.getName(), ingredient.getType());
+        return ingredient;
     }
 }

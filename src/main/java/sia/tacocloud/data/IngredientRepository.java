@@ -8,8 +8,8 @@ public interface IngredientRepository {
 
     List<Ingredient> findAll();
 
-    Ingredient findOne(String id);
+    Ingredient findById(String id);
 
-    void save(Ingredient ingredient);
+    Ingredient save(Ingredient ingredient);
 
 }
