@@ -16,6 +16,7 @@ import sia.tacocloud.data.TacoRepository;
 import javax.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 @Slf4j
 @Controller
@@ -44,7 +45,7 @@ public class DesignTacoController {
 
     @ModelAttribute
     public void addIngredientsToModel(Model model) {
-        List<Ingredient> ingredients = ingredientRepository.findAll();
+        Iterable<Ingredient> ingredients = ingredientRepository.findAll();
         Type[] types = Ingredient.Type.values();
         for (Type type : types)
             model.addAttribute(type.toString().toLowerCase(), filterByType(ingredients, type));
@@ -55,9 +56,9 @@ public class DesignTacoController {
         return "design";
     }
 
-    private List<Ingredient> filterByType(List<Ingredient> ingredients, Type type) {
-        return ingredients.stream().filter(ingredient -> ingredient.getType().equals(type)).collect(
-                Collectors.toList());
+    private List<Ingredient> filterByType(Iterable<Ingredient> ingredients, Type type) {
+        return StreamSupport.stream(ingredients.spliterator(), false)
+                            .filter(ingredient -> ingredient.getType().equals(type)).collect(Collectors.toList());
     }
 
     @PostMapping
