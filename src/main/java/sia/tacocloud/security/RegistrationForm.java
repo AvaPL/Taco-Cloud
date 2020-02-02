@@ -7,6 +7,7 @@ import sia.tacocloud.User;
 @Data
 public class RegistrationForm {
 
+    //TODO: Add validation.
     private String username;
     private String password;
     private String fullName;

@@ -28,3 +28,7 @@ div.ingredient-group {
 span.validationError {
     color: red;
 }
+
+div.login-logout-button {
+    float: right;
+}

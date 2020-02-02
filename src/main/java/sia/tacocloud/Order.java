@@ -18,7 +18,7 @@ import java.util.List;
 public class Order {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Date placedAt;
     @NotBlank(message = "Name is required")

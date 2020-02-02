@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<html lang="pl" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>SCR Systemy Operacyjne</title>
@@ -99,12 +99,6 @@
 </p>
 <hr/>
 <br/><a th:href="@{/}">Home</a>
-
-<!--TODO: Check if user is logged in.-->
-<hr/>
-<form method="POST" th:action="@{/logout}">
-    <input type="submit" value="Logout"/>
-</form>
 
 </body>
 </html>

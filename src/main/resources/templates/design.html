@@ -1,12 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Taco Cloud</title>
     <link rel="stylesheet" th:href="@{/styles.css}"/>
 </head>
 <body>
-<h1>Design your taco!</h1>
+<h1>Design your taco!
+    <div class="login-logout-button" sec:authorize="isAuthenticated()">
+        <form method="post" th:action="@{/logout}">
+            <input type="submit" value="Logout"/>
+        </form>
+    </div>
+</h1>
 <img th:src="@{/images/TacoCloud.png}"/>
 
 <form method="post" th:action="@{/design}" th:object="${design}">
@@ -70,12 +77,6 @@
         <input type="submit" value="Submit order"/>
     </div>
 
-</form>
-
-<!--TODO: Check if user is logged in.-->
-<hr/>
-<form method="POST" th:action="@{/logout}">
-    <input type="submit" value="Logout"/>
 </form>
 
 </body>
