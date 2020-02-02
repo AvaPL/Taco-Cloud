@@ -99,5 +99,12 @@
 </p>
 <hr/>
 <br/><a th:href="@{/}">Home</a>
+
+<!--TODO: Check if user is logged in.-->
+<hr/>
+<form method="POST" th:action="@{/logout}">
+    <input type="submit" value="Logout"/>
+</form>
+
 </body>
 </html>

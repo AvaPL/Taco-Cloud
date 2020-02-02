@@ -10,5 +10,12 @@
 <br/><a th:href="@{/design}"><h2>Design a new taco!</h2></a>
 <hr/>
 <br/><a th:href="@{/scr}">SCR Systemy Operacyjne</a>
+
+<!--TODO: Check if user is logged in.-->
+<hr/>
+<form method="POST" th:action="@{/logout}">
+    <input type="submit" value="Logout"/>
+</form>
+
 </body>
 </html>

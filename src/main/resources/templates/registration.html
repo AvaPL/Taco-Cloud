@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Taco Cloud</title>
+    <link rel="stylesheet" th:href="@{/styles.css}"/>
+</head>
+<body>
+<h1>Register</h1>
+<img th:src="@{/images/TacoCloud.png}"/>
+
+<form method="post" th:action="@{/register}" th:object="${registrationForm}">
+
+    <label for="username">Username: </label>
+    <input type="text" id="username" th:field="*{username}"/>
+    <br/>
+
+    <label for="password">Password: </label>
+    <input type="password" id="password" th:field="*{password}"/>
+    <br/>
+
+    <!--TODO: Use confirmation.-->
+    <label for="confirmPassword">Confirm password: </label>
+    <input type="password" id="confirmPassword"/>
+    <br/>
+
+    <label for="fullName">Full name: </label>
+    <input type="text" id="fullName" th:field="*{fullName}"/>
+    <br/>
+
+    <label for="street">Street: </label>
+    <input type="text" id="street" th:field="*{street}"/>
+    <br/>
+
+    <label for="city">City: </label>
+    <input type="text" id="city" th:field="*{city}"/>
+    <br/>
+
+    <label for="state">State: </label>
+    <input type="text" id="state" th:field="*{state}"/>
+    <br/>
+
+    <label for="zip">Zip: </label>
+    <input type="text" id="zip" th:field="*{zip}"/>
+    <br/>
+
+    <label for="phoneNumber">Phone: </label>
+    <input type="text" id="phoneNumber" th:field="*{phoneNumber}"/>
+    <br/>
+
+    <input type="submit" value="Register"/>
+
+</form>
+
+</body>
+</html>
