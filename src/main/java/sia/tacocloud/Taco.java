@@ -13,7 +13,7 @@ import java.util.List;
 public class Taco {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Date createdAt;
     @Size(min = 5, max = 50, message = "Name must be 5 to 50 characters long")

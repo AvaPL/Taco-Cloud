@@ -1,14 +1,3 @@
-DELETE
-FROM Ingredient;
-DELETE
-FROM Taco;
-DELETE
-FROM Taco_Ingredients;
-DELETE
-FROM Taco_Order;
-DELETE
-FROM Taco_Order_Tacos;
-
 INSERT INTO Ingredient (id, name, type)
 VALUES ('FLTO', 'Flour Tortilla', 'WRAP');
 INSERT INTO Ingredient (id, name, type)
@@ -29,3 +18,7 @@ INSERT INTO Ingredient (id, name, type)
 VALUES ('SLSA', 'Salsa', 'SAUCE');
 INSERT INTO Ingredient (id, name, type)
 VALUES ('SRCR', 'Sour Cream', 'SAUCE');
+
+INSERT INTO User (city, full_name, password, phone_number, state, street, username, zip)
+VALUES ('Świdnica', 'Paweł Cembaluk', '$2a$10$tCE50HrUuHPaEdp/QJhCPeJwuPcSj1gG.BbsMBddvpahfzzLdRjmu', '123456789', 'DŚ', 'Ładna 12/3', 'Pafeu', '58-100')
+-- Password: 123
