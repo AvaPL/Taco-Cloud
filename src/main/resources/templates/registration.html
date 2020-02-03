@@ -11,41 +11,54 @@
 
 <form method="post" th:action="@{/register}" th:object="${registrationForm}">
 
+    <div th:if="${#fields.hasErrors()}">
+        <p><span class="validationError">Please correct the problems below and resubmit.</span></p>
+    </div>
+
     <label for="username">Username: </label>
     <input type="text" id="username" th:field="*{username}"/>
+    <span class="validationError" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">ERROR MESSAGE</span>
     <br/>
 
     <label for="password">Password: </label>
     <input type="password" id="password" th:field="*{password}"/>
+    <span class="validationError" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">ERROR MESSAGE</span>
     <br/>
 
-    <!--TODO: Use confirmation.-->
     <label for="confirmPassword">Confirm password: </label>
-    <input type="password" id="confirmPassword"/>
+    <input type="password" id="confirmPassword" th:field="*{confirmPassword}"/>
+    <span class="validationError" th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}">ERROR MESSAGE</span>
     <br/>
 
     <label for="fullName">Full name: </label>
     <input type="text" id="fullName" th:field="*{fullName}"/>
+    <span class="validationError" th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}">ERROR MESSAGE</span>
     <br/>
 
     <label for="street">Street: </label>
     <input type="text" id="street" th:field="*{street}"/>
+    <span class="validationError" th:if="${#fields.hasErrors('street')}" th:errors="*{street}">ERROR MESSAGE</span>
     <br/>
 
     <label for="city">City: </label>
     <input type="text" id="city" th:field="*{city}"/>
+    <span class="validationError" th:if="${#fields.hasErrors('city')}" th:errors="*{city}">ERROR MESSAGE</span>
     <br/>
 
     <label for="state">State: </label>
     <input type="text" id="state" th:field="*{state}"/>
+    <span class="validationError" th:if="${#fields.hasErrors('state')}" th:errors="*{state}">ERROR MESSAGE</span>
     <br/>
 
     <label for="zip">Zip: </label>
     <input type="text" id="zip" th:field="*{zip}"/>
+    <span class="validationError" th:if="${#fields.hasErrors('zip')}" th:errors="*{zip}">ERROR MESSAGE</span>
     <br/>
 
     <label for="phoneNumber">Phone: </label>
     <input type="text" id="phoneNumber" th:field="*{phoneNumber}"/>
+    <span class="validationError" th:if="${#fields.hasErrors('phoneNumber')}"
+          th:errors="*{phoneNumber}">ERROR MESSAGE</span>
     <br/>
 
     <input type="submit" value="Register"/>

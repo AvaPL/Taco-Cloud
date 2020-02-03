@@ -12,6 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Size;
 import java.util.Collection;
 import java.util.Collections;
 
@@ -27,12 +28,18 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Size(max = 50)
     private final String username;
     private final String password;
+    @Size(max = 50)
     private final String fullName;
+    @Size(max = 50)
     private final String street;
+    @Size(max = 50)
     private final String city;
+    @Size(max = 2)
     private final String state;
+    @Size(max = 10)
     private final String zip;
     private final String phoneNumber;
 

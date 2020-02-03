@@ -36,7 +36,7 @@ public class Order {
     @NotBlank(message = "Zip code is required")
     @Size(max = 10, message = "Max 10 characters")
     private String zip;
-    @CreditCardNumber(message = "Not a valid credit card number")
+    @CreditCardNumber(message = "Invalid credit card number")
     private String ccNumber;
     @Pattern(regexp = "^(0[1-9]|1[0-2])/[1-9][0-9]$", message = "Must be formatted MM/YY")
     private String ccExpiration;
