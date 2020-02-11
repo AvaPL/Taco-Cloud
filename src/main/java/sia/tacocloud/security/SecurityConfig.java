@@ -36,8 +36,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/design", "/orders").hasRole("USER").antMatchers("/**").permitAll()
-            .and().formLogin().loginPage("/login").and().logout().logoutSuccessUrl("/");
+        http.authorizeRequests().antMatchers("/design/**", "/orders/**", "/api/**").hasRole("USER")
+            .antMatchers("/**").permitAll()
+            // Enables logging in via login page.
+            .and().formLogin().loginPage("/login").and().logout().logoutSuccessUrl("/")
+            // Enables logging in via http basic authentication.
+            .and().httpBasic()
+            // Allows using REST API methods from any page.
+            .and().csrf().ignoringAntMatchers("/api/**");
     }
 
     @Override
