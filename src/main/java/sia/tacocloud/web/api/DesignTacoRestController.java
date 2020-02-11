@@ -3,12 +3,17 @@ package sia.tacocloud.web.api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.hateoas.CollectionModel;
+import org.springframework.hateoas.EntityModel;
+import org.springframework.hateoas.Link;
+import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import sia.tacocloud.Taco;
 import sia.tacocloud.data.TacoRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -24,9 +29,20 @@ public class DesignTacoRestController {
     }
 
     @GetMapping("/recent")
-    public Iterable<Taco> recentTacos() {
+    public CollectionModel<TacoRepresentation> recentTacos() {
         PageRequest pageRequest = PageRequest.of(0, 12, Sort.by("createdAt").descending());
-        return tacoRepository.findAll(pageRequest).getContent();
+        List<Taco> recentTacos = tacoRepository.findAll(pageRequest).getContent();
+        CollectionModel<TacoRepresentation> recentTacosCollection =
+                new TacoRepresentationAssembler().toCollectionModel(recentTacos);
+        Link link = getRecentsLink();
+        recentTacosCollection.add(link);
+        return recentTacosCollection;
+    }
+
+    private Link getRecentsLink() {
+        CollectionModel<TacoRepresentation> recents =
+                WebMvcLinkBuilder.methodOn(DesignTacoRestController.class).recentTacos();
+        return WebMvcLinkBuilder.linkTo(recents).withRel("recents");
     }
 
     @GetMapping("/{id}")
@@ -40,7 +56,7 @@ public class DesignTacoRestController {
 
     @PostMapping(consumes = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
-    public Taco postTaco(@RequestBody Taco taco){
+    public Taco postTaco(@RequestBody Taco taco) {
         return tacoRepository.save(taco);
     }
 
