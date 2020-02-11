@@ -12,7 +12,7 @@ import sia.tacocloud.data.TacoRepository;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(path = "/design", produces = "application/json")
+@RequestMapping(path = "/api/design", produces = "application/json")
 @CrossOrigin(origins = "*")
 public class DesignTacoRestController {
 
@@ -36,6 +36,12 @@ public class DesignTacoRestController {
             return new ResponseEntity<>(tacoOptional.get(), HttpStatus.OK);
         else
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+    @PostMapping(consumes = "application/json")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Taco postTaco(@RequestBody Taco taco){
+        return tacoRepository.save(taco);
     }
 
 }
