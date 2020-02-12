@@ -4,10 +4,12 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.RepresentationModel;
+import org.springframework.hateoas.server.core.Relation;
 import sia.tacocloud.Taco;
 
 import java.util.Date;
 
+@Relation(itemRelation = "taco", collectionRelation = "tacos")
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class TacoRepresentation extends RepresentationModel<TacoRepresentation> {
